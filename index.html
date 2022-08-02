@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | E-commerce product page</title>
+    <link rel="stylesheet" href="./style.css" />
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul id="main_nav">
+        <li id="logo">
+          <a href=""><img src="./images/logo.svg" alt="" /></a>
+        </li>
+        <ul id="primarynav">
+          <li class="options"><a href="">Collections</a></li>
+          <li class="options"><a href="">Men</a></li>
+          <li class="options"><a href="">Women</a></li>
+          <li class="options"><a href="">About</a></li>
+          <li class="options"><a href="">Contact</a></li>
+        </ul>
+        <ul id="seconav">
+          <li>
+            <input
+              type="image"
+              src="./images/icon-cart.svg"
+              alt="cart"
+              id="cart"
+            />
+            <div id="amountcart"></div>
+          </li>
+
+          <li>
+            <img src="./images/image-avatar.png" alt="" id="avatar"
+            />
+          </li>
+        </ul>
+      </ul>
+    </nav>
+    <div class="cart_modal">
+      <h1 style="font-size: 17px; padding: 19px 9px 19px 20px">Cart</h1>
+      <hr style="height: 1px; background-color: #ccc; border: none" />
+      <p style="font-size: 15px; text-align: center; line-height: 200px">
+        Your cart is empty
+      </p>
+    </div>
+
+    <div id="container">
+      <div id="leftcontainer">
+        <div class="display" id="main_display">
+          <img
+            src="./images/image-product-1.jpg"
+            alt=""
+            id="disp"
+            class="view"
+          />
+        </div>
+        <div class="display disp">
+          <img
+            src="./images/image-product-2.jpg"
+            alt=""
+            id="two"
+            class="view"
+          />
+        </div>
+        <div class="display disp">
+          <img
+            src="./images/image-product-3.jpg"
+            alt=""
+            id="three"
+            class="view"
+          />
+        </div>
+        <div class="display disp">
+          <img
+            src="./images/image-product-4.jpg"
+            alt=""
+            id="four"
+            class="view"
+          />
+        </div>
+        <div id="slides">
+          <button class="product_btn">
+            <img
+              class="products"
+              id="one"
+              src="./images/image-product-1-thumbnail.jpg"
+              alt=""
+            />
+          </button>
+          <button class="product_btn">
+            <img
+              class="products"
+              id="two"
+              src="./images/image-product-2-thumbnail.jpg"
+              alt=""
+            />
+          </button>
+          <button class="product_btn">
+            <img
+              class="products"
+              id="three"
+              src="./images/image-product-3-thumbnail.jpg"
+              alt=""
+            />
+          </button>
+          <button
+            class="product_btn"
+            onclick="document.getElementById('disp').src = document.getElementsByClassName('disp')[2].src"
+          >
+            <img
+              class="products"
+              id="four"
+              src="./images/image-product-4-thumbnail.jpg"
+              alt=""
+            />
+          </button>
+        </div>
+        <!-- <button id="on">on</button> -->
+      </div>
+      <div id="rightcontainer">
+        <h3
+          style="
+            font-size: 16px;
+            letter-spacing: 4px;
+            color: hsl(26, 100%, 55%);
+          "
+        >
+          SNEAKER COMPANY
+        </h3>
+        <br />
+        <h2 style="font-size: 50px">
+          Fall Limited Edition <br />
+          Sneakers
+        </h2>
+        <br />
+        <p>
+          These low-profile sneakers are your perfect casual wear companion.
+          Featuring a durable rubber outer sole, they’ll withstand everything
+          the weather can offer.
+        </p>
+        <br />
+        <strong style="font-size: 30px">$125.00</strong>
+        &nbsp;
+        <span id="tagoff">50%</span>
+        <br />
+        <strike style="color: hsl(220, 14%, 75%); font-weight: 600"
+          >$250.00</strike
+        >
+        <br />
+        <div id="amount">
+          <input
+            type="image"
+            src="./images/icon-minus.svg"
+            name="submit"
+            alt="submit"
+            id="minus"
+          />
+          <span id="count">1</span>
+          <input
+            type="image"
+            src="./images/icon-plus.svg"
+            name="submit"
+            alt="submit"
+            id="plus"
+          />
+        </div>
+        <button type="submit" id="add">
+          <img src="./images/icon-cart.svg" alt="" /> Add to cart
+        </button>
+      </div>
+    </div>
+    <div id="omodl" class="modal">
+      <div class="modal_content">
+        <span id="close">×</span>
+
+        <div class="img_modal">
+          <button class="modal_btn" id="prev"><</button>
+          <img
+            src="./images/image-product-1.jpg"
+            id="mod_img"
+            alt=""
+            style="width: 100%; border-radius: 5px"
+          />
+          <button class="modal_btn" id="next">></button>
+        </div>
+
+        <div class="modal_slides">
+          <img
+            src="./images/image-product-1-thumbnail.jpg"
+            alt=""
+            class="modal_prod"
+          />
+          <img
+            src="./images/image-product-2-thumbnail.jpg"
+            alt=""
+            class="modal_prod"
+          />
+          <img
+            src="./images/image-product-3-thumbnail.jpg"
+            alt=""
+            class="modal_prod"
+          />
+          <img
+            src="./images/image-product-4-thumbnail.jpg"
+            alt=""
+            class="modal_prod"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div>
+    <script>
+      const addto = document.getElementById("add");
+      const main_display = document.getElementById("main_display");
+      const dis = document.getElementById("disp");
+      const mod_img = document.getElementById("mod_img");
+      const pluss = document.getElementById("plus");
+      const minus = document.getElementById("minus");
+      const cnt = document.getElementById("count");
+      const modl = document.getElementById("omodl");
+      const dis1 = document.getElementById("one");
+      const dis2 = document.getElementById("two");
+      const dis3 = document.getElementById("three");
+      const dis4 = document.getElementById("four");
+      const cls = document.getElementById("close");
+      // const on = document.getElementById('on');
+      const cartamt = document.getElementById("amountcart");
+      const cartimg = document.getElementById("cart");
+      const prod = document.getElementsByClassName("products");
+      const modal2 = document.getElementsByClassName("modal");
+      const views = document.getElementsByClassName("view");
+      const btn = document.getElementsByClassName("product_btn");
+
+      cls.onclick = function close() {
+        modl.style.display = "none";
+      };
+      main_display.onclick = function open() {
+        // if(modl.style.display === 'none')
+        mod_img.src = dis.src;
+        modl.style.display = "block";
+      };
+
+      (window.onclick = function (event) {
+        if (event.target == modl) {
+          modl.style.display = "none";
+        }
+      }),
+        (btn.onclick = function view() {
+          // dis.style.display = "none";
+          // document.getElementById(e.target.id).style.display = "block";
+          dis.src = views[i + 1].src
+        });
+
+      (pluss.onclick = function inc() {
+        let x = cnt.innerText;
+        cnt.innerText = x * 1 + 1;
+      }),
+        (minus.onclick = function dec() {
+          let x = cnt.innerText;
+          cnt.innerText = x * 1 - 1;
+          if (x <= 0) {
+            x = 0;
+          }
+        }),
+        (cart = []);
+      addto.addEventListener("click", () => {
+        cart.push(amount, item);
+      }),
+        //  prod.addEventListener('click', (e) =>{
+        //   //  e = e || window.event;
+        //    var x = e.target
+        //    x.style.border = "3px solid hsl(26, 100%, 55%)"
+        //     dis.src = x.src
+        //  })
+        //  function open(){
+        //    dis1.style.borderColor = 'black'
+        //  }
+
+        // setInterval(switc, 20000);
+      // restartLoop:
+      //    while (true) {
+      // function switc() {
+      //   for (i = 0; i < prod.length; i++) {
+      //     prod[i].style.border = "3px solid hsl(26, 100%, 55%)";
+      //     (prod[i].style.opacity = "0.6"),
+      //     disp.style.height = "100%";
+      //     if (i == prod.length) {
+      //       let i = 0;
+      //       // continue restartLoop;
+      //     }
+      //     //  break;
+      // }
+      // for (i = 0; i < views.length; i++) {
+      //       dis.src = views[i].src;
+      //     }
+      // for(i = 0; i < prod.length; i++){
+      //     prod[i - 1].style.border = "none"
+      //     prod[i - 1].style.opacity = "1";
+      //   }
+      //   }
+       
+      // }
+      prod.array.forEach(function switc(element){
+        prod[i].style.border = "3px solid hsl(26, 100%, 55%)";
+          (prod[i].style.opacity = "0.6"),
+           disp.style.height = "100%";
+      });
+    </script>
+  </body>
+</html>

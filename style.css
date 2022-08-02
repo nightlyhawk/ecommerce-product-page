@@ -1,0 +1,327 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+nav
+{
+    border-bottom: 0.1px solid hsl(223, 64%, 98%);
+    height: 60px;
+}
+#main_nav
+{
+    display: flex;
+    flex-direction: row;
+    
+}
+#primarynav
+{
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+    position: relative;
+    left: 100px;
+}
+#seconav 
+{
+    display: flex;
+    justify-content: space-between;
+    width: 120px;
+    position: relative;
+    left: 600px;
+}
+li
+{
+    display: inline;
+    list-style: none;
+}
+.options
+{
+    height: 45px;
+}
+.options:hover
+{
+    border-bottom: 5px solid hsl(26, 100%, 55%);
+}
+a:hover
+{
+    color: hsl(220, 13%, 13%);
+}
+a
+{
+    text-decoration: none;
+    color: hsl(220, 14%, 75%);
+}
+#avatar
+{
+    height: 45px;
+    border-radius: 50px;
+}
+#avatar:hover
+{
+    border: 3px solid hsl(26, 100%, 55%);
+    
+}
+.options, #logo
+{
+    position: relative;
+    top: 10px;
+}
+#cart
+{
+    position: relative;
+    top: 10px;
+    height: 20px;
+    width: 20px;
+}
+#container
+{
+    margin: auto;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    top: 80px;
+}
+#leftcontainer
+{
+    display: flex;
+    flex-direction: column;
+    width: 47.5%;
+}
+.display
+{
+    height: 50%;
+}
+.view
+{
+   height: 100%;
+   border-radius: 10px;
+}
+.disp
+{
+    display: none;
+}
+#slides
+{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    position: relative;
+    top: 15px;
+}
+.product_btn
+{
+    height: 118px;
+    width: 118px;
+    border-radius: 5px;
+    border: none;
+}
+.products
+{
+    height: 100%;
+    width: 100%;
+    border-radius: 6px;
+}
+.products:hover
+{
+    opacity: 0.5;
+}
+/* #two
+{
+    position: relative;
+    left: 5px;
+}
+#three
+{
+    position: relative;
+    left: 5px;
+}
+#four
+{
+    position: relative;
+    left: 5px;
+} */
+p
+{
+    text-align: left;
+    width: 70%;
+    font-size: 18px;
+    color: hsl(220, 14%, 75%);
+}
+#rightcontainer
+{
+    width: 47.5%;
+    position: relative;
+    top: 70px;
+}
+#tagoff
+{
+    background-color: hsl(25, 100%, 94%);
+    color: hsl(26, 100%, 55%);
+    padding: 1px;
+    border-radius: 5px;
+    position: relative;
+    top: -6px;
+}
+#add
+{
+    width: 284px;
+    height: 51px;
+    background-color: hsl(26, 100%, 55%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    position: relative;
+    left: 151px;
+    
+}
+#add>img
+{
+    height: 14px;
+    position: relative;
+    right: 10px;
+    color: white;
+}
+#add:hover
+{
+    opacity: 0.8;
+}
+#amount
+{
+    background-color: hsl(223, 64%, 98%);
+    width: 123px;
+    height: 54px;
+    border-radius: 5px;
+    position: relative;
+    top: 53px;
+}
+#minus
+{
+    position: relative;
+    top: 19px;
+    left: 10px;
+}
+#count
+{
+    position: relative;
+    top: 21px;
+    left: 32px;
+}
+#plus
+{
+    position: relative;
+    top: 22px;
+    left: 60px;
+}
+#minus:hover, #count:hover, #plus:hover
+{
+    cursor: pointer;
+}
+#amountcart
+{
+    height: 13px;
+    width: 19px;
+    border-radius: 9px;
+    background-color: hsl(26, 100%, 55%);
+    text-align: center;
+    color: white;
+    position: relative;
+    top: -21px;
+    left: 13px;
+    display: none;
+}
+.cart_modal
+{
+    position: absolute;
+    top: 13%;
+    left: 73%;
+    z-index: 1;
+    border-radius: 9px;
+    background-color: white;
+    width: 25%;
+    height: 252px;
+    box-shadow: 1px 8px 13px grey;
+    display: none;
+}
+
+.modal
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgb(0,0,0);        
+    background-color: rgba(0,0,0,0.4);  
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+}
+.modal_content
+{
+ /* display: contents; */
+}
+
+#close
+{
+    color: white;
+    margin-left: 66%;
+    font-size: 37px;
+    font-weight: bold;
+}
+#close:hover
+{
+    color: hsl(26, 100%, 55%);
+    cursor: pointer;
+}
+.img_modal
+{
+    width: 35%;
+    margin: auto;
+    margin-top: -3%;
+   
+}
+.modal_slides
+{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    position: relative;
+    bottom: 4%;
+    left: 35%;
+}
+.modal_prod
+{
+    height: 78px;
+    width: 78px;
+    border-radius: 3px;
+}
+.modal_prod:hover
+{
+    opacity: 0.6;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.modal_btn
+{
+    position: relative;
+    border-radius: 55px;
+    height: 42px;
+    width: 43px;
+    border: none;
+}
+.modal_btn:hover
+{
+    color: hsl(26, 100%, 55%);
+    cursor: pointer;
+}
+#prev
+{
+    top: 242px;
+    right: 5%;
+}
+#next
+{
+    bottom: 277px;
+    left: 96%;
+}
