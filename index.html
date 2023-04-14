@@ -46,91 +46,83 @@
               src="./images/icon-cart.svg"
               alt="cart"
               id="cart"
+              onclick="price()"
             />
             <div id="amountcart"></div>
           </li>
 
           <li>
-            <img src="./images/image-avatar.png" alt="" id="avatar"
-            />
+            <img src="./images/image-avatar.png" alt="" id="avatar" />
           </li>
         </ul>
       </ul>
     </nav>
-    <div class="cart_modal">
+    <div id="cart_modal">
       <h1 style="font-size: 17px; padding: 19px 9px 19px 20px">Cart</h1>
       <hr style="height: 1px; background-color: #ccc; border: none" />
-      <p style="font-size: 15px; text-align: center; line-height: 200px">
-        Your cart is empty
-      </p>
     </div>
 
     <div id="container">
       <div id="leftcontainer">
-        <div class="display" id="main_display">
-          <img
-            src="./images/image-product-1.jpg"
-            alt=""
-            id="disp"
-            class="view"
-          />
-        </div>
-        <div class="display disp">
-          <img
-            src="./images/image-product-2.jpg"
-            alt=""
-            id="two"
-            class="view"
-          />
-        </div>
-        <div class="display disp">
-          <img
-            src="./images/image-product-3.jpg"
-            alt=""
-            id="three"
-            class="view"
-          />
-        </div>
-        <div class="display disp">
-          <img
-            src="./images/image-product-4.jpg"
-            alt=""
-            id="four"
-            class="view"
-          />
+        <div id="main_display">
+          <div class="display">
+            <img
+              src="./images/image-product-1.jpg"
+              alt=""
+              id="first_display"
+              class="view"
+            />
+          </div>
+          <div class="display disp">
+            <img
+              src="./images/image-product-2.jpg"
+              alt=""
+              id="second_display"
+              class="view"
+            />
+          </div>
+          <div class="display disp">
+            <img
+              src="./images/image-product-3.jpg"
+              alt=""
+              id="third_display"
+              class="view"
+            />
+          </div>
+          <div class="display disp">
+            <img
+              src="./images/image-product-4.jpg"
+              alt=""
+              id="fourth_display"
+              class="view"
+            />
+          </div>
         </div>
         <div id="slides">
-          <button class="product_btn">
+          <button class="product_btn" id="one" onclick="selectSlide(1)">
             <img
               class="products"
-              id="one"
               src="./images/image-product-1-thumbnail.jpg"
               alt=""
             />
           </button>
-          <button class="product_btn">
+          <button class="product_btn" id="two" onclick="selectSlide(2)">
             <img
               class="products"
-              id="two"
               src="./images/image-product-2-thumbnail.jpg"
               alt=""
             />
           </button>
-          <button class="product_btn">
+          <button class="product_btn" id="three" onclick="selectSlide(3)">
             <img
               class="products"
-              id="three"
               src="./images/image-product-3-thumbnail.jpg"
               alt=""
             />
           </button>
-          <button
-            class="product_btn"
-            onclick="document.getElementById('disp').src = document.getElementsByClassName('disp')[2].src"
-          >
+          <button class="product_btn" id="four" onclick="selectSlide(4)">
             <img
               class="products"
-              id="four"
               src="./images/image-product-4-thumbnail.jpg"
               alt=""
             />
@@ -149,7 +141,7 @@
           SNEAKER COMPANY
         </h3>
         <br />
-        <h2 style="font-size: 50px">
+        <h2 id="label" style="font-size: 50px">
           Fall Limited Edition <br />
           Sneakers
         </h2>
@@ -160,7 +152,7 @@
           the weather can offer.
         </p>
         <br />
-        <strong style="font-size: 30px">$125.00</strong>
+        <strong style="font-size: 30px">$<span id="price">125.00</span></strong>
         &nbsp;
         <span id="tagoff">50%</span>
         <br />
@@ -193,39 +185,40 @@
     <div id="omodl" class="modal">
       <div class="modal_content">
         <span id="close">×</span>
-
+        <button class="modal_btn" id="next" onclick="plusSlide(1)">></button>
         <div class="img_modal">
-          <button class="modal_btn" id="prev"><</button>
           <img
             src="./images/image-product-1.jpg"
             id="mod_img"
             alt=""
-            style="width: 100%; border-radius: 5px"
           />
-          <button class="modal_btn" id="next">></button>
         </div>
-
+        <button class="modal_btn" id="prev" onclick="plusSlide(-1)"><</button>
         <div class="modal_slides">
-          <img
-            src="./images/image-product-1-thumbnail.jpg"
-            alt=""
-            class="modal_prod"
-          />
-          <img
-            src="./images/image-product-2-thumbnail.jpg"
-            alt=""
-            class="modal_prod"
-          />
-          <img
-            src="./images/image-product-3-thumbnail.jpg"
-            alt=""
-            class="modal_prod"
-          />
-          <img
-            src="./images/image-product-4-thumbnail.jpg"
-            alt=""
-            class="modal_prod"
-          />
+          <div class="modal_prod">
+            <img
+              src="./images/image-product-1-thumbnail.jpg"
+              alt=""  
+            />
+          </div>
+          <div class="modal_prod">
+            <img
+              src="./images/image-product-2-thumbnail.jpg"
+              alt=""  
+            />
+          </div>
+          <div class="modal_prod">
+            <img
+              src="./images/image-product-3-thumbnail.jpg"
+              alt=""  
+            />
+          </div>
+          <div class="modal_prod">
+            <img
+              src="./images/image-product-4-thumbnail.jpg"
+              alt=""  
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -238,17 +231,18 @@
     </div>
     <script>
       const addto = document.getElementById("add");
+      const empty = document.getElementById("empty");
       const main_display = document.getElementById("main_display");
-      const dis = document.getElementById("disp");
+      const ftdi = document.getElementById("first_display");
       const mod_img = document.getElementById("mod_img");
       const pluss = document.getElementById("plus");
       const minus = document.getElementById("minus");
       const cnt = document.getElementById("count");
       const modl = document.getElementById("omodl");
-      const dis1 = document.getElementById("one");
-      const dis2 = document.getElementById("two");
-      const dis3 = document.getElementById("three");
-      const dis4 = document.getElementById("four");
+      const prod1btn = document.getElementById("one");
+      const prod2btn = document.getElementById("two");
+      const prod3btn = document.getElementById("three");
+      const prod4btn = document.getElementById("four");
       const cls = document.getElementById("close");
       // const on = document.getElementById('on');
       const cartamt = document.getElementById("amountcart");
@@ -256,14 +250,18 @@
       const prod = document.getElementsByClassName("products");
       const modal2 = document.getElementsByClassName("modal");
       const views = document.getElementsByClassName("view");
-      const btn = document.getElementsByClassName("product_btn");
+      const btns = document.getElementsByClassName("product_btn");
+      const prices = document.getElementById("price");
+      const label = document.getElementById("label");
+      const basket = document.getElementById("cart_modal");
+      const slides = document.getElementsByClassName("modal_prod");
 
       cls.onclick = function close() {
         modl.style.display = "none";
       };
       main_display.onclick = function open() {
         // if(modl.style.display === 'none')
-        mod_img.src = dis.src;
+        mod_img.src = ftdi.src;
         modl.style.display = "block";
       };
 
@@ -272,38 +270,265 @@
           modl.style.display = "none";
         }
       }),
-        (btn.onclick = function view() {
-          // dis.style.display = "none";
-          // document.getElementById(e.target.id).style.display = "block";
-          dis.src = views[i + 1].src
-        });
+        (window.onclick = function (event) {
+          if (event.target == basket) {
+            basket.style.display = "none";
+          }
+        }),
+        // (btn.onclick = function view() {
+        //   // dis.style.display = "none";
+        //   // document.getElementById(e.target.id).style.display = "block";
+        //   dis.src = views[i + 1].src
+        // });
 
-      (pluss.onclick = function inc() {
-        let x = cnt.innerText;
-        cnt.innerText = x * 1 + 1;
-      }),
+        (pluss.onclick = function inc() {
+          let x = cnt.innerText;
+          cnt.innerText = x * 1 + 1;
+        }),
         (minus.onclick = function dec() {
           let x = cnt.innerText;
           cnt.innerText = x * 1 - 1;
-          if (x <= 0) {
-            x = 0;
+          if (cnt.innerText <= 0) {
+            cnt.innerText = 0;
           }
         }),
-        (cart = []);
-      addto.addEventListener("click", () => {
-        cart.push(amount, item);
-      }),
-        //  prod.addEventListener('click', (e) =>{
-        //   //  e = e || window.event;
-        //    var x = e.target
-        //    x.style.border = "3px solid hsl(26, 100%, 55%)"
-        //     dis.src = x.src
-        //  })
-        //  function open(){
-        //    dis1.style.borderColor = 'black'
-        //  }
+        // (prod1btn.onclick = function match() {
+        //   if (
+        //     btn[1].classList.contains("style") ||
+        //     btn[2].classList.contains("style") ||
+        //     btn[3].classList.contains("style")
+        //   ) {
+        //     btn[1].classList.remove("style");
+        //     btn[2].classList.remove("style");
+        //     btn[3].classList.remove("style");
+        //   }
+        //   document.getElementById("one").classList.add("style");
+        //   ftdi.src = "./images/image-product-1.jpg";
+        // }),
+        // (prod2btn.onclick = function match() {
+        //   if (
+        //     btn[0].classList.contains("style") ||
+        //     btn[2].classList.contains("style") ||
+        //     btn[3].classList.contains("style")
+        //   ) {
+        //     btn[0].classList.remove("style");
+        //     btn[2].classList.remove("style");
+        //     btn[3].classList.remove("style");
+        //   }
+        //   document.getElementById("two").classList.add("style");
+        //   ftdi.src = "./images/image-product-2.jpg";
+        // }),
+        // (prod3btn.onclick = function match() {
+        //   if (
+        //     btn[0].classList.contains("style") ||
+        //     btn[1].classList.contains("style") ||
+        //     btn[3].classList.contains("style")
+        //   ) {
+        //     btn[0].classList.remove("style");
+        //     btn[1].classList.remove("style");
+        //     btn[3].classList.remove("style");
+        //   }
+        //   document.getElementById("three").classList.add("style");
+        //   ftdi.src = "./images/image-product-3.jpg";
+        // }),
+        // (prod4btn.onclick = function match() {
+        //   if (
+        //     btn[0].classList.contains("style") ||
+        //     btn[1].classList.contains("style") ||
+        //     btn[2].classList.contains("style")
+        //   ) {
+        //     btn[0].classList.remove("style");
+        //     btn[1].classList.remove("style");
+        //     btn[2].classList.remove("style");
+        //   }
+        //   document.getElementById("four").classList.add("style");
+        //   ftdi.src = "./images/image-product-4.jpg";
+        // });
+      selectSlide(n);
+      function selectSlide(n) {
+        let i;
+        for (i = 0; i < btns.length; i++) {
+          btns[i].classList.remove("style");
+        }
+        event.target.className += " style";
+        ftdi.src = "./images/image-product-" + n + ".jpg";
+      };
+      // btn.addEventListener("click", (e) => {
+      //   e.target.style.border = "3px solid hsl(26, 100%, 55%)";
+      //   e.target.style.opacity = "0.6";
+      // })
+      let cart = [];
 
-        // setInterval(switc, 20000);
+      function loopArr(cart) {
+        cart.map((item) => {
+          // let div2 = document.createElement("div");
+          // div2.id = "div";
+          let div = document.createElement("div");
+          div.id = "div";
+          let pro = document.createElement("img");
+          pro.id = "prodthumbnail";
+          pro.src = "./images/image-product-1-thumbnail.jpg";
+          pro.style.height = "58px";
+          pro.style.borderRadius = "3px";
+          pro.style.position = "relative";
+          pro.style.top = "21px";
+          pro.style.left = "21px";
+          let p1 = document.createElement("p");
+          p1.textContent = label.innerText;
+          p1.id = "name";
+          p1.style.position = "relative";
+          p1.style.left = "87px";
+          p1.style.bottom = "39px";
+          let p2 = document.createElement("p");
+          p2.id = "amtprice";
+          p2.style.position = "relative";
+          p2.style.left = "87px";
+          p2.style.bottom = "39px";
+          let amount = cnt.innerText;
+          let price = cnt.innerText * prices.innerText;
+          p2.textContent = "$" + prices.innerText + " x " + amount;
+          let p3 = document.createElement("p");
+          p3.textContent = "$" + price + ".00";
+          p3.id = "total";
+          p3.style.position = "relative";
+          p3.style.left = "57%";
+          p3.style.bottom = "60px";
+          p3.style.fontWeight = "100px";
+          let delbtn = document.createElement("img");
+          delbtn.src = "./images/icon-delete.svg";
+          delbtn.style.position = "relative";
+          delbtn.style.left = "90%";
+          delbtn.style.bottom = "86px";
+          delbtn.onclick = function remove(e) {
+            e.target.item.remove();
+            cart.target.shift();
+          };
+          let addbtn = document.createElement("button");
+          addbtn.textContent = "Checkout";
+          addbtn.id = "checkout";
+          addbtn.style.height = "38px";
+          addbtn.style.width = "88%";
+          addbtn.style.marginLeft = "7px";
+          addbtn.style.marginBottom = "4px";
+          let section = document.querySelector("#cart_modal");
+          div.appendChild(pro);
+          div.appendChild(p1);
+          div.appendChild(p2);
+          div.appendChild(p3);
+          div.appendChild(delbtn);
+          div.appendChild(addbtn);
+
+          section.appendChild(div);
+        });
+      }
+
+      function price() {
+        if ((basket.style.display = "none")) {
+          basket.style.display = "block";
+        } else {
+          basket.style.display = "none";
+        }
+      }
+
+      // cartimg.onclick =
+      // basket.style.display = "none"
+      // ? basket.style.display = "block"
+      // : basket.style.display = "none";
+      function clearContainerDOM() {
+        let prevTask = document.querySelectorAll("#div");
+        prevTask.forEach(function (item) {
+          item.remove();
+        });
+      }
+      function updateCart(cart) {
+        if (cart.length > 0) {
+          let nullText = document.querySelector("#empty");
+          if (nullText) {
+            nullText.remove();
+          }
+          clearContainerDOM();
+
+          loopArr(cart);
+        } else {
+          let h2 = document.createElement("h2");
+          h2.textContent = "your cart is empty";
+          h2.id = "empty";
+
+          let section = document.querySelector("#cart_modal");
+
+          section.appendChild(h2);
+        }
+      }
+
+      updateCart(cart);
+      addto.onclick = function () {
+        let value = cnt.innerText;
+        if (value > 0) {
+          cart.unshift(value);
+          no(value);
+          updateCart(cart);
+          console.log(cart);
+          cnt.innerText = 0;
+        } else {
+          console.log("no value");
+        }
+      };
+      function no(value) {
+        let s = document.createElement("span");
+        s.id = "no";
+        if (s.textContent > 0) {
+          s.textContent = value + s.textContent;
+        } else if(value = 0){s.textContent = null
+        } else {
+          cartamt.style.height = "13px";
+          cartamt.style.backgroundColor = "hsl(26, 100%, 55%)";
+          cartamt.style.width = "13px";
+          cartamt.style.borderRadius = "10px";
+          cartamt.style.textAlign = "center";
+          cartamt.style.position = "relative";
+          cartamt.style.top = "-17px";
+          cartamt.style.left = "13px";
+          s.textContent = value;
+          s.style.color = "white";
+          s.style.fontSize = "11px";
+          s.style.position = "relative";
+          s.style.bottom = "3px";
+          let section = document.querySelector("#amountcart");
+
+          section.appendChild(s);
+        }
+      }
+
+      let index = 1;
+      slide(index);
+
+      function plusSlide(n){
+        slide(index += n);
+      }
+
+      function slide(n) {
+        let i;
+        for (i = 0; i < slides.length; i++) {
+          slides[i].classList.remove("active");
+        }
+        if (n > slides.length) {index = 1}    
+        if (n < 1) {index = slides.length}
+        mod_img.src = slides[index - 1].firstElementChild.src;
+        mod_img.src = mod_img.src.replace("-thumbnail", "");
+        slides[index - 1].className += " active";
+      }
+
+      //  prod.addEventListener('click', (e) =>{
+      //   //  e = e || window.event;
+      //    var x = e.target
+      //    x.style.border = "3px solid hsl(26, 100%, 55%)"
+      //     dis.src = x.src
+      //  })
+      //  function open(){
+      //    dis1.style.borderColor = 'black'
+      //  }
+
+      // setInterval(switc, 20000);
       // restartLoop:
       //    while (true) {
       // function switc() {
@@ -325,13 +550,18 @@
       //     prod[i - 1].style.opacity = "1";
       //   }
       //   }
-       
+
       // }
-      prod.array.forEach(function switc(element){
-        prod[i].style.border = "3px solid hsl(26, 100%, 55%)";
-          (prod[i].style.opacity = "0.6"),
-           disp.style.height = "100%";
-      });
+
+      //  for( i = 0; i < dis.length; i++){
+      //    if( dis.array)
+      // };
+
+      // window.onload = prod.array.forEach(function switc(){
+      //   prod[i].style.border = "3px solid hsl(26, 100%, 55%)";
+      //     (prod[i].style.opacity = "0.6"),
+      //      disp.style.height = "100%";
+      // });
     </script>
   </body>
 </html>
